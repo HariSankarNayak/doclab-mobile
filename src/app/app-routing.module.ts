@@ -203,20 +203,8 @@ const routes: Routes = [
         './service-provider/medical-list-provider/medical-list-provider.module'
       ).then((m) => m.MedicalListProviderPageModule),
   },
-  {
-    path: 'message-provider',
-    loadChildren: () =>
-      import(
-        './service-provider/message-provider/message-provider.module'
-      ).then((m) => m.MessageProviderPageModule),
-  },
-  {
-    path: 'profile-provider',
-    loadChildren: () =>
-      import(
-        './service-provider/profile-provider/profile-provider.module'
-      ).then((m) => m.ProfileProviderPageModule),
-  },
+
+
   {
     path: 'profile-address-provider',
     loadChildren: () =>
