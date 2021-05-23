@@ -61,7 +61,7 @@ export class HomePage implements OnInit {
     const postData = JSON.stringify({
       patientID: this.patientID,
     });
-    this.providerSvc.postData('appointment-list.php', postData).subscribe(
+    this.providerSvc.postDataProvider('appointment-list.php', postData).subscribe(
       (appdata) => {
 
         if (appdata != null) {

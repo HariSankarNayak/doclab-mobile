@@ -45,7 +45,7 @@ export class TabsProviderPage implements OnInit {
       patientID: id,
     });
 
-    this.providerSvc.postData('message.php', postData).subscribe(
+    this.providerSvc.postDataProvider('message.php', postData).subscribe(
       (data) => {
         if (data != null) {
           this.items = data;

@@ -283,6 +283,10 @@ const routes: Routes = [
         (m) => m.TabsProviderPageModule
       ),
   },
+  {
+    path: 'business',
+    loadChildren: () => import('./service-provider/business/business.module').then( m => m.BusinessPageModule)
+  },
 ];
 
 @NgModule({

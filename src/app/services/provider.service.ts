@@ -12,7 +12,7 @@ const LOGIN_URL = SERVER_NAME + '/doclab/patient/login.php';
 
 
 const PROVIDER_API_URL = SERVER_NAME + '/doclab/provider/';
-const PROVIDER_LOGIN_URL = SERVER_NAME + '/doclab/doctor/login-api.php';
+const PROVIDER_LOGIN_URL = SERVER_NAME + '/doclab/provider/login-api.php';
 @Injectable({
   providedIn: 'root',
 })
@@ -31,10 +31,10 @@ export class ProviderService {
   }
 
   getData(getpathURL: string) {
-    return this.http.get(PROVIDER_API_URL + getpathURL);
+    return this.http.get(API_URL + getpathURL);
   }
   postDataProvider(pathURL: string, dataPost: any) {
-    return this.http.post(API_URL + pathURL, dataPost);
+    return this.http.post(PROVIDER_API_URL + pathURL, dataPost);
   }
 
   getDataProvider(getpathURL: string) {

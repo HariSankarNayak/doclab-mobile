@@ -30,7 +30,6 @@ export class SearchPage implements OnInit {
     this.providerSvc.getData('speciality.php').subscribe((data) => {
       if (data != null) {
         this.items = data;
-        console.log(this.items);
         this.iconLink = this.providerSvc.iconURL;
       }
     });
