@@ -45,10 +45,10 @@
   <div class="upcoming-section">
     <h6 class="ion-padding-horizontal section-title"><b>Latest</b></h6>
 
-    <div *ngIf="empty != 0" class="ion-padding-horizontal">
+    <div *ngIf="empty == 1" class="ion-padding-horizontal">
       <h6>No Appointment Found</h6>
     </div>
-    <div *ngIf="empty != 1">
+    <div *ngIf="empty == 0">
       <ion-card (click)="promptNotify()">
         <ion-row>
           <ion-col size="3">

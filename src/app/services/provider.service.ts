@@ -8,6 +8,11 @@ const EMPTYIMG_URL =
   SERVER_NAME + '/doclab/patient/uploads/empty/empty-avatar.jpg';
 const ICON_URL = SERVER_NAME + '/doclab/uploads/icons/';
 const LOGIN_URL = SERVER_NAME + '/doclab/patient/login.php';
+
+
+
+const PROVIDER_API_URL = SERVER_NAME + '/doclab/provider/';
+const PROVIDER_LOGIN_URL = SERVER_NAME + '/doclab/doctor/login-api.php';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +22,7 @@ export class ProviderService {
   emptyURL: string = EMPTYIMG_URL;
   iconURL: string = ICON_URL;
   loginURL: string = LOGIN_URL;
+  providerLoginURL: string =PROVIDER_LOGIN_URL;
 
   constructor(private http: HttpClient) {}
 
@@ -25,6 +31,13 @@ export class ProviderService {
   }
 
   getData(getpathURL: string) {
-    return this.http.get(API_URL + getpathURL);
+    return this.http.get(PROVIDER_API_URL + getpathURL);
+  }
+  postDataProvider(pathURL: string, dataPost: any) {
+    return this.http.post(API_URL + pathURL, dataPost);
+  }
+
+  getDataProvider(getpathURL: string) {
+    return this.http.get(PROVIDER_API_URL + getpathURL);
   }
 }

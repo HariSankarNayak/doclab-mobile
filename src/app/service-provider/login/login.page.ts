@@ -27,10 +27,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-  loginUser() {
+  loginProvider() {
     if (this.formData.email != null && this.formData.password != null) {
       if (this.formData.email.match(this.ctrl.pattern.email)) {
-        this.authSerive.login(this.formData.email, this.formData.password);
+        this.authSerive.loginProviderSer(this.formData.email, this.formData.password);
       } else {
         this.alertPopUp('Attention', 'Invalid Email Format!', 'Try Again');
       }

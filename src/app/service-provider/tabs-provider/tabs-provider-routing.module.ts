@@ -10,32 +10,32 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'home-provider',
+        path: 'home',
         loadChildren: () =>
           import(
             '../../service-provider/home-provider/home-provider.module'
           ).then((m) => m.HomeProviderPageModule),
       },
       {
-        path: 'appointment-provider',
+        path: 'appointment',
         loadChildren: () =>
           import(
             '../../service-provider/appointment-provider/appointment-provider.module'
           ).then((m) => m.AppointmentProviderPageModule),
       },
       {
-        path: 'search-provider',
+        path: 'search',
         loadChildren: () => import('../../service-provider/search-provider/search-provider.module').then( m => m.SearchProviderPageModule)
       },
       {
-        path: 'message-provider',
+        path: 'message',
         loadChildren: () =>
           import(
             '../../service-provider/message-provider/message-provider.module'
           ).then((m) => m.MessageProviderPageModule),
       },
       {
-        path: 'profile-provider',
+        path: 'profile',
         loadChildren: () =>
           import(
             '../../service-provider/profile-provider/profile-provider.module'

@@ -63,7 +63,9 @@ export class HomePage implements OnInit {
     });
     this.providerSvc.postData('appointment-list.php', postData).subscribe(
       (appdata) => {
+
         if (appdata != null) {
+          this.empty = 0;
           this.clinicID = appdata[0].clinic_id;
           this.doctorID = appdata[0].doctor_id;
           this.doctorName =
@@ -72,7 +74,7 @@ export class HomePage implements OnInit {
           this.appDate = appdata[0].app_date;
           this.appTime = appdata[0].app_time;
           this.speciality = appdata[0].speciality_name;
-          this.empty = 0;
+
 
           const currentDate = this.datePipe.transform(
             new Date().toLocaleString(),

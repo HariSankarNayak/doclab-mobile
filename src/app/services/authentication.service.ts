@@ -36,6 +36,11 @@ export class AuthenticationService {
         this.authenticationState.next(true);
       }
     });
+    this.storage.get('PROVIDER_INFO_DATA').then((res) => {
+      if (res) {
+        this.authenticationState.next(true);
+      }
+    });
   }
 
   login(email: string, password: string) {
@@ -65,9 +70,40 @@ export class AuthenticationService {
       }
     });
   }
+  loginProviderSer(email: string, password: string) {
+    this.loadingSvc.presentLoading();
+    const dataPost = new FormData();
+    dataPost.append('inputemail', email);
+    dataPost.append('inputpass', password);
+
+    const url: string = this.providerSvc.providerLoginURL;
+
+    const data: Observable<any> = this.http.post(url, dataPost);
+
+    data.subscribe((res) => {
+      if (res[0] == 0) {
+        this.loadingSvc.dismissLoading();
+        this.alertPopUp(
+          'Attention',
+          'Email & Password Incorrect!',
+          'Try Again'
+        );
+      } else {
+        this.loadingSvc.dismissLoading();
+        return this.storage.set('PROVIDER_INFO_DATA', res).then((_) => {
+          this.router.navigate(['provider/home']);
+          this.authenticationState.next(true);
+        });
+      }
+    });
+  }
 
   logout() {
     this.storage.remove('USER_INFO_DATA').then(() => {
+      this.router.navigate(['login']);
+      this.authenticationState.next(false);
+    });
+    this.storage.remove('PROVIDER_INFO_DATA').then(() => {
       this.router.navigate(['login']);
       this.authenticationState.next(false);
     });

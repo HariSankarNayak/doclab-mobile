@@ -277,7 +277,7 @@ const routes: Routes = [
       ).then((m) => m.SearchModalProviderPageModule),
   },
   {
-    path: 'tabs-provider',
+    path: 'provider',
     loadChildren: () =>
       import('./service-provider/tabs-provider/tabs-provider.module').then(
         (m) => m.TabsProviderPageModule
